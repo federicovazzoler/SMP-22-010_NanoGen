@@ -2,3 +2,4 @@
 *.root
 *.log
 crab_projects
+events/
