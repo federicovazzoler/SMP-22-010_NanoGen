@@ -1,6 +1,6 @@
 #! /bin/bash
 
-fragment=SMP-RunIISummer20UL16wmLHEGEN-00645_onlys2wWeights.py
+fragment=SMP-RunIISummer20UL16wmLHEGEN-00645_onlys2wWeights_cff.py
 outputfile=SMP-RunIISummer20UL16wmLHEGEN-00645_onlys2wWeights.root
 
 customize="--customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=999"
