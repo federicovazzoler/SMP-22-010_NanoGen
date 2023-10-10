@@ -34,28 +34,28 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
                                     'pythia8PSweightsSettings',
                                     'processParameters')
     ),
-    ExternalDecays = cms.PSet(
-        Photospp = cms.untracked.PSet(
-            parameterSets = cms.vstring("setExponentiation", "setInfraredCutOff", "setMeCorrectionWtForW", "setMeCorrectionWtForZ", "setMomentumConservationThreshold", "setPairEmission", "setPhotonEmission", "setStopAtCriticalError", "suppressAll", "forceBremForDecay"),
-            setExponentiation = cms.bool(True),
-            setMeCorrectionWtForW = cms.bool(True),
-            setMeCorrectionWtForZ = cms.bool(True),
-            setInfraredCutOff = cms.double(0.0000001),
-            setMomentumConservationThreshold = cms.double(0.1),
-            setPairEmission = cms.bool(True),
-            setPhotonEmission = cms.bool(True),
-            setStopAtCriticalError = cms.bool(False),
-            # Use Photos only for W/Z decays
-            suppressAll = cms.bool(True),
-            forceBremForDecay = cms.PSet(
-                parameterSets = cms.vstring("Z", "Wp", "Wm"),
-                Z = cms.vint32(0, 23),
-                Wp = cms.vint32(0, 24),
-                Wm = cms.vint32(0, -24),
-            ),
-        ),
-        parameterSets = cms.vstring("Photospp")
-    )
+#    ExternalDecays = cms.PSet(
+#        Photospp = cms.untracked.PSet(
+#            parameterSets = cms.vstring("setExponentiation", "setInfraredCutOff", "setMeCorrectionWtForW", "setMeCorrectionWtForZ", "setMomentumConservationThreshold", "setPairEmission", "setPhotonEmission", "setStopAtCriticalError", "suppressAll", "forceBremForDecay"),
+#            setExponentiation = cms.bool(True),
+#            setMeCorrectionWtForW = cms.bool(True),
+#            setMeCorrectionWtForZ = cms.bool(True),
+#            setInfraredCutOff = cms.double(0.0000001),
+#            setMomentumConservationThreshold = cms.double(0.1),
+#            setPairEmission = cms.bool(True),
+#            setPhotonEmission = cms.bool(True),
+#            setStopAtCriticalError = cms.bool(False),
+#            # Use Photos only for W/Z decays
+#            suppressAll = cms.bool(True),
+#            forceBremForDecay = cms.PSet(
+#                parameterSets = cms.vstring("Z", "Wp", "Wm"),
+#                Z = cms.vint32(0, 23),
+#                Wp = cms.vint32(0, 24),
+#                Wm = cms.vint32(0, -24),
+#            ),
+#        ),
+#        parameterSets = cms.vstring("Photospp")
+#    )
 )
 
 ProductionFilterSequence = cms.Sequence(generator)

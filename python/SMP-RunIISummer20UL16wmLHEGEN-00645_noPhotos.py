@@ -1,7 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
-    args = cms.vstring('/afs/cern.ch/user/f/fvazzole/work/smp-22-010_genproduction/MiNNLOSamples/tarballs/RunIISummer20UL16wmLHEGEN-00645/mytar.tgz'),
+    args = cms.vstring('/cvmfs/cms.cern.ch/phys_generator/gridpacks/slc7_amd64_gcc10/13TeV/powheg/Vj_MiNNLO/Zj_slc7_amd64_gcc10_CMSSW_12_3_1_ZJToMuMu-suggested-nnpdf31-ncalls-doublefsr-q139-powheg-MiNNLO31-svn3900-ew-rwl6-j200-st2fix-ana-hoppetweights-ymax20-pdf3.tgz'),
     nEvents = cms.untracked.uint32(100),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
@@ -34,28 +34,28 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
                                     'pythia8PSweightsSettings',
                                     'processParameters')
     ),
-    ExternalDecays = cms.PSet(
-        Photospp = cms.untracked.PSet(
-            parameterSets = cms.vstring("setExponentiation", "setInfraredCutOff", "setMeCorrectionWtForW", "setMeCorrectionWtForZ", "setMomentumConservationThreshold", "setPairEmission", "setPhotonEmission", "setStopAtCriticalError", "suppressAll", "forceBremForDecay"),
-            setExponentiation = cms.bool(True),
-            setMeCorrectionWtForW = cms.bool(True),
-            setMeCorrectionWtForZ = cms.bool(True),
-            setInfraredCutOff = cms.double(0.0000001),
-            setMomentumConservationThreshold = cms.double(0.1),
-            setPairEmission = cms.bool(True),
-            setPhotonEmission = cms.bool(True),
-            setStopAtCriticalError = cms.bool(False),
-            # Use Photos only for W/Z decays
-            suppressAll = cms.bool(True),
-            forceBremForDecay = cms.PSet(
-                parameterSets = cms.vstring("Z", "Wp", "Wm"),
-                Z = cms.vint32(0, 23),
-                Wp = cms.vint32(0, 24),
-                Wm = cms.vint32(0, -24),
-            ),
-        ),
-        parameterSets = cms.vstring("Photospp")
-    )
+#    ExternalDecays = cms.PSet(
+#        Photospp = cms.untracked.PSet(
+#            parameterSets = cms.vstring("setExponentiation", "setInfraredCutOff", "setMeCorrectionWtForW", "setMeCorrectionWtForZ", "setMomentumConservationThreshold", "setPairEmission", "setPhotonEmission", "setStopAtCriticalError", "suppressAll", "forceBremForDecay"),
+#            setExponentiation = cms.bool(True),
+#            setMeCorrectionWtForW = cms.bool(True),
+#            setMeCorrectionWtForZ = cms.bool(True),
+#            setInfraredCutOff = cms.double(0.0000001),
+#            setMomentumConservationThreshold = cms.double(0.1),
+#            setPairEmission = cms.bool(True),
+#            setPhotonEmission = cms.bool(True),
+#            setStopAtCriticalError = cms.bool(False),
+#            # Use Photos only for W/Z decays
+#            suppressAll = cms.bool(True),
+#            forceBremForDecay = cms.PSet(
+#                parameterSets = cms.vstring("Z", "Wp", "Wm"),
+#                Z = cms.vint32(0, 23),
+#                Wp = cms.vint32(0, 24),
+#                Wm = cms.vint32(0, -24),
+#            ),
+#        ),
+#        parameterSets = cms.vstring("Photospp")
+#    )
 )
 
 ProductionFilterSequence = cms.Sequence(generator)

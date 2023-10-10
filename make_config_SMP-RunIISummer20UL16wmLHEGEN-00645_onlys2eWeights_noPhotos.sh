@@ -1,7 +1,7 @@
 #! /bin/bash
 
-fragment=SMP-RunIISummer20UL16wmLHEGEN-00645_onlys2wWeights.py
-outputfile=SMP-RunIISummer20UL16wmLHEGEN-00645_onlys2wWeights.root
+fragment=SMP-RunIISummer20UL16wmLHEGEN-00645_onlys2wWeights_noPhotos.py
+outputfile=SMP-RunIISummer20UL16wmLHEGEN-00645_onlys2wWeights_noPhotos.root
 
 customize="--customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=999"
 #customize="${customize}\nprocess.externalLHEProducer.generateConcurrently=True --nThreads 8"

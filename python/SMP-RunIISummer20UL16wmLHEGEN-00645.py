@@ -5,12 +5,12 @@ externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
     nEvents = cms.untracked.uint32(100),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
-    scriptName = cms.FileInPath('GeneratorInterface/LHEInterface/data/run_generic_tarball_cvmfs.sh'),
-    generateConcurrently = cms.untracked.bool(True),
+    scriptName = cms.FileInPath('GeneratorInterface/LHEInterface/data/run_generic_tarball_cvmfs.sh')
 )
 
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
+from Configuration.Generator.Pythia8PowhegEmissionVetoSettings_cfi import *
 from Configuration.Generator.PSweightsPythia.PythiaPSweightsSettings_cfi import *
 
 generator = cms.EDFilter("Pythia8HadronizerFilter",
@@ -28,17 +28,13 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
             'TimeShower:pTmaxMatch = 1',
             'ParticleDecays:allowPhotonRadiation = on',
             'TimeShower:QEDshowerByL = off',
-            "TimeShower:QEDshowerByOther = off",
-            'BeamRemnants:hardKTOnlyLHE = on',
-            'BeamRemnants:primordialKThard = 2.225001',
-            'SpaceShower:dipoleRecoil = 1',
             ),
     parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
                                     'pythia8PSweightsSettings',
                                     'processParameters')
     ),
-  ExternalDecays = cms.PSet(
+    ExternalDecays = cms.PSet(
         Photospp = cms.untracked.PSet(
             parameterSets = cms.vstring("setExponentiation", "setInfraredCutOff", "setMeCorrectionWtForW", "setMeCorrectionWtForZ", "setMomentumConservationThreshold", "setPairEmission", "setPhotonEmission", "setStopAtCriticalError", "suppressAll", "forceBremForDecay"),
             setExponentiation = cms.bool(True),

@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: Configuration/SMP-22-010_NanoGen/python/SMP-RunIISummer20UL16wmLHEGEN-00645.py --fileout file:SMP-RunIISummer20UL16wmLHEGEN-00645.root --mc --eventcontent NANOAODSIM --datatier NANOAOD --conditions auto:mc --step LHE,GEN,NANOGEN --python_filename configs/SMP-RunIISummer20UL16wmLHEGEN-00645.py --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=999\nprocess.externalLHEProducer.generateConcurrently=True --nThreads 8 -n 30 --no_exec
+# with command line options: Configuration/SMP-22-010_NanoGen/python/SMP-RunIISummer20UL16wmLHEGEN-00645.py --fileout file:SMP-RunIISummer20UL16wmLHEGEN-00645.root --mc --eventcontent NANOAODSIM --datatier NANOAOD --conditions auto:mc --step LHE,GEN,NANOGEN --python_filename configs/SMP-RunIISummer20UL16wmLHEGEN-00645.py --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=999 -n 10 --no_exec
 import FWCore.ParameterSet.Config as cms
 
 
@@ -25,7 +25,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(30),
+    input = cms.untracked.int32(10),
     output = cms.optional.untracked.allowed(cms.int32,cms.PSet)
 )
 
@@ -61,7 +61,7 @@ process.options = cms.untracked.PSet(
 
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('Configuration/SMP-22-010_NanoGen/python/SMP-RunIISummer20UL16wmLHEGEN-00645.py nevts:30'),
+    annotation = cms.untracked.string('Configuration/SMP-22-010_NanoGen/python/SMP-RunIISummer20UL16wmLHEGEN-00645.py nevts:10'),
     name = cms.untracked.string('Applications'),
     version = cms.untracked.string('$Revision: 1.19 $')
 )
@@ -137,11 +137,7 @@ process.generator = cms.EDFilter("Pythia8HadronizerFilter",
             'SpaceShower:pTmaxMatch = 1', 
             'TimeShower:pTmaxMatch = 1', 
             'ParticleDecays:allowPhotonRadiation = on', 
-            'TimeShower:QEDshowerByL = off', 
-            'TimeShower:QEDshowerByOther = off', 
-            'BeamRemnants:hardKTOnlyLHE = on', 
-            'BeamRemnants:primordialKThard = 2.225001', 
-            'SpaceShower:dipoleRecoil = 1'
+            'TimeShower:QEDshowerByL = off'
         ),
         pythia8CP5Settings = cms.vstring(
             'Tune:pp 14', 
@@ -198,8 +194,7 @@ process.generator = cms.EDFilter("Pythia8HadronizerFilter",
 
 process.externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
     args = cms.vstring('/cvmfs/cms.cern.ch/phys_generator/gridpacks/slc7_amd64_gcc10/13TeV/powheg/Vj_MiNNLO/Zj_slc7_amd64_gcc10_CMSSW_12_3_1_ZJToMuMu-suggested-nnpdf31-ncalls-doublefsr-q139-powheg-MiNNLO31-svn3900-ew-rwl6-j200-st2fix-ana-hoppetweights-ymax20-pdf3.tgz'),
-    generateConcurrently = cms.untracked.bool(True),
-    nEvents = cms.untracked.uint32(30),
+    nEvents = cms.untracked.uint32(10),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
     scriptName = cms.FileInPath('GeneratorInterface/LHEInterface/data/run_generic_tarball_cvmfs.sh')
@@ -220,11 +215,6 @@ process.NANOAODSIMoutput_step = cms.EndPath(process.NANOAODSIMoutput)
 process.schedule = cms.Schedule(process.lhe_step,process.generation_step,process.genfiltersummary_step,process.nanoAOD_step,process.endjob_step,process.NANOAODSIMoutput_step)
 from PhysicsTools.PatAlgos.tools.helpers import associatePatAlgosToolsTask
 associatePatAlgosToolsTask(process)
-
-#Setup FWK for multithreaded
-process.options.numberOfThreads=cms.untracked.uint32(8)
-process.options.numberOfStreams=cms.untracked.uint32(0)
-process.options.numberOfConcurrentLuminosityBlocks=cms.untracked.uint32(1)
 # filter all path with the production filter sequence
 for path in process.paths:
 	if path in ['lhe_step']: continue
@@ -244,7 +234,6 @@ process = customizeNanoGEN(process)
 # Customisation from command line
 
 process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=999
-process.externalLHEProducer.generateConcurrently=True
 # Add early deletion of temporary data products to reduce peak memory need
 from Configuration.StandardSequences.earlyDeleteSettings_cff import customiseEarlyDelete
 process = customiseEarlyDelete(process)
