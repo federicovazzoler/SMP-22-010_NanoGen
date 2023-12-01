@@ -28,4 +28,5 @@ To make the configs:
 ./make_config.sh python/ZJToMuMu-suggested-nnpdf31-ncalls-doublefsr-q139-finerGrid_v3-powheg-MiNNLO31-svn3900-ew-rwl6-j200-st2fix-ana-hoppetweights-ymax20-pdf3-adds2wvars_cff.py 1000
 ./make_config.sh python/ZJToEE-suggested-nnpdf31-ncalls-doublefsr-q139-finerGrid_v3-powheg-MiNNLO31-svn3900-ew-rwl6-j200-st2fix-ana-hoppetweights-ymax20-pdf3-adds2wvars_cff.py 1000
 ./make_config.sh python/ZJToTauTau-suggested-nnpdf31-ncalls-doublefsr-q139-finerGrid_v3-powheg-MiNNLO31-svn3900-ew-rwl6-j200-st2fix-ana-hoppetweights-ymax20-pdf3-adds2wvars_cff.py 1000
+
 ```
