@@ -2,7 +2,7 @@
 
 config=${1}
 
-workFld=events/$(basename "$config" .py)
+workFld=NanoGEN/$(basename "$config" .py)
 mkdir -p ${workFld}
 cp ${config} ${workFld}/cfg.py
 
