@@ -1,17 +1,14 @@
 # Setup to run NanoGen and store LHE weights
 ```
 CMSSWver=CMSSW_13_0_0
-
 cmsrel ${CMSSWver}
 cd ${CMSSWver}/src
 cmsenv
 git cms-init
 scram b -j `nproc`
-
 mkdir -p Configuration
 cd Configuration
 git clone git@github.com:federicovazzoler/SMP-22-010_NanoGen.git
-
 scram b -j `nproc`
 ```
 
