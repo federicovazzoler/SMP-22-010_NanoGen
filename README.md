@@ -10,6 +10,7 @@ mkdir -p Configuration
 cd Configuration
 git clone git@github.com:federicovazzoler/SMP-22-010_NanoGen.git
 scram b -j `nproc`
+
 ```
 
 # Making configs and running
