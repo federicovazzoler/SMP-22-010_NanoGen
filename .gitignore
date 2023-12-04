@@ -3,3 +3,6 @@
 *.log
 crab_projects
 NanoGEN/
+condorJobs/
+*.lst
+*.lhe
