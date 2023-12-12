@@ -4,7 +4,7 @@ fragment=$(basename ${1})
 outputfile=${fragment/.py/.root}
 nevts=${2:-10}
 
-customize="--customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=999"
+customize="--customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=999\nprocess.genWeightsTable.maxPdfWeights=1000"
 
 cmsenv
 cmsDriver.py Configuration/SMP-22-010_NanoGen/python/${fragment} \
