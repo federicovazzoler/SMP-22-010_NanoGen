@@ -3,9 +3,9 @@
 #include <TH1.h>
 #include <TCanvas.h>
 
-void plot_difference() {
+void plot_difference(string infile="") {
     // Open the ROOT file
-    TFile* file = TFile::Open("anal.root");
+    TFile* file = TFile::Open(infile.c_str());
     if (!file || file->IsZombie()) {
         std::cerr << "Error: Cannot open the file 'anal.root'!" << std::endl;
         return;
@@ -106,6 +106,9 @@ void plot_difference() {
 
     // Update the canvas
     canvas->Update();
-    canvas->Print("AFB_comparison.pdf");
+    std::string basename_infile = (infile.size() > 5 && infile.substr(infile.size() - 5) == ".root")
+                                ? infile.substr(0, infile.size() - 5)
+                                : infile;
+    canvas->Print((basename_infile + "_AFB_comparison.pdf").c_str());
 }
 

@@ -4,9 +4,9 @@
 #include <TCanvas.h>
 #include <TLegend.h>
 
-void plot_genweights() {
+void plot_genweights(string infile="") {
     // Open the ROOT file
-    TFile* file = TFile::Open("anal.root");
+    TFile* file = TFile::Open(infile.c_str());
     if (!file || file->IsZombie()) {
         std::cerr << "Error: Cannot open the file 'anal.root'!" << std::endl;
         return;
@@ -36,6 +36,9 @@ void plot_genweights() {
     canvas->SetLogy();
     // Update the canvas
     canvas->Update();
-    canvas->Print("h_Generator_weight_comparison.pdf");
+    std::string basename_infile = (infile.size() > 5 && infile.substr(infile.size() - 5) == ".root")
+                                ? infile.substr(0, infile.size() - 5)
+                                : infile;
+    canvas->Print((basename_infile + "_h_Generator_weight_comparison.pdf").c_str());
 }
 
