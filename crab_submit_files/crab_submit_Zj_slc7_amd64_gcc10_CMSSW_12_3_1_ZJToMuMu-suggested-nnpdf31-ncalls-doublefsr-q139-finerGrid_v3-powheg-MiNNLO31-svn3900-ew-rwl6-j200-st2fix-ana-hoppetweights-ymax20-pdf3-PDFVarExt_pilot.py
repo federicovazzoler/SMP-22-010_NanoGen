@@ -17,7 +17,8 @@ config.Data.splitting = 'EventBased'
 config.Data.unitsPerJob = 10
 NJOBS = 10
 config.Data.totalUnits = config.Data.unitsPerJob * NJOBS
-config.Data.outLFNDirBase = '/store/group/phys_smp/sin2O' 
+#config.Data.outLFNDirBase = '/store/group/phys_smp/sin2O' 
+config.Data.outLFNDirBase = '/store/group/phys_smp/ec/sin2O' 
 config.Data.publication = False
 config.Data.outputDatasetTag = 'NanoGEN'
 
