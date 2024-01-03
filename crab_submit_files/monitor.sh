@@ -25,17 +25,61 @@ clear
 #crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_5000ev_pilot
 #echo ""
 
-crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt
+#echo ""
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt
+#echo ""
+#
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt_ext1
+#echo ""
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_ext1
+#echo ""
+#
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt_ext2
+#echo ""
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_ext2
+#echo ""
+#
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt_ext3
+#echo ""
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_ext3
+#echo ""
+#
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt_ext4
+#echo ""
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_ext4
+#echo ""
+#
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt_ext5
+#echo ""
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_ext5
+#echo ""
+#
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt_ext6
+#echo ""
+#
+#crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_ext6
+#echo ""
+
+
+crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt_ext7
 echo ""
 
-crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt
+crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_ext7
 echo ""
 
 
-crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToEE-H2BugFix-PDFVarExt_ext1
-echo ""
-
-crab status -d ${WRKFLD}/crab_submit_files/crab_projects/crab_ZJToMuMu-H2BugFix-PDFVarExt_ext1
-echo ""
 
 exit 0
