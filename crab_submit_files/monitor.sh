@@ -1,8 +1,12 @@
 #!/bin/bash
 
-WRKFLD="/nfs/dust/cms/user/vazzolef/NanoGEN/CMSSW_10_6_32_patch1/src/Configuration/SMP-22-010_NanoGen"
+if [[ "$(hostname)" == *"naf-cms"* ]]; then
+  WRKFLD="/nfs/dust/cms/user/vazzolef/NanoGEN/CMSSW_10_6_32_patch1/src/Configuration/SMP-22-010_NanoGen"
+  source ${WRKFLD}/setup_naf.sh
+elif [[ "$(hostname)" == *"lxplus"* ]]; then
+  WRKFLD="/afs/cern.ch/user/f/fvazzole/work/NanoGEN/CMSSW_10_6_32_patch1/src/Configuration/SMP-22-010_NanoGen/"
+fi
 
-source ${WRKFLD}/setup_naf.sh
 cmsenv
 
 clear
