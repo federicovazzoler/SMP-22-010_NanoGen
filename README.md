@@ -1,6 +1,7 @@
 # Setup to run NanoGen and store LHE weights
+
 ```
-CMSSWver=CMSSW_13_0_0
+CMSSWver=CMSSW_10_6_32_patch1
 cmsrel ${CMSSWver}
 cd ${CMSSWver}/src
 cmsenv
